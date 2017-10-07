@@ -24,16 +24,16 @@ header file is: IOSReview.h
 
 Here is how I implemented it within my game:
 
-					if (s3eDeviceGetInt(S3E_DEVICE_OS) == S3E_OS_ID_IPHONE)
-					{
+        if (s3eDeviceGetInt(S3E_DEVICE_OS) == S3E_OS_ID_IPHONE)
+	{
             //In case of older IOS version not supporting the new SKStoreReviewController
-						if (requestReview() == S3E_RESULT_ERROR)
-						{
+                 if (requestReview() == S3E_RESULT_ERROR)
+		 {
               //If app store is unavailable, fall back to web page
-              if (s3eOSExecExecute("itms-apps://itunes.apple.com/app/idxxxxxxxxxx?mt=8", 0) != 0)
-                s3eOSExecExecute("https://itunes.apple.com/app/idxxxxxxxxxx?mt=8", 0);
-						}
-					}
-          //else Android
-					else 
-				    s3eOSExecExecute("market://details?id=com.xxxxxxxx.xxxxxxxxxxxxx", 0);
+              		if (s3eOSExecExecute("itms-apps://itunes.apple.com/app/idxxxxxxxxxx?mt=8", 0) != 0)
+                		s3eOSExecExecute("https://itunes.apple.com/app/idxxxxxxxxxx?mt=8", 0);
+		}
+	}
+        //else Android
+	else 
+	    s3eOSExecExecute("market://details?id=com.xxxxxxxx.xxxxxxxxxxxxx", 0);
